@@ -1,0 +1,38 @@
+/* Bg */
+body {
+    height: 90vh;
+
+    background: url(images/Bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.glass-box {
+    padding-top: 25px;
+    height: 110px;
+    width: 190px;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.avatar img {
+    width: 25px;
+}
+
+.buttons-class {
+    display: flex;
+    flex-direction: column;
+
+
+}
