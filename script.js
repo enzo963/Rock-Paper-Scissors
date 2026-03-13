@@ -1,103 +1,51 @@
 
 
-/*
+function getComputerChoice() {
 
-button
-|
-|
-v
+    let number = Math.random();
 
-Paramert = number 
+    if (number <= 0.33) { return "rock"; }
+    if (number <= 0.66) { return "paper"; }
 
-IF number <= 0.3 
-    returen "paper" 
-ELSE IF number >= 0.6
-    returen "Rock" 
-ELSE
-    returen "Scissore"
+    return "scissors";
+}
 
 
-        <div class="glass-box">
-        <button onclick="
-            
-            let number = Math.random();
-            getComputerChoice(number)">Random number </button>
-    </div>
-*/
+let humanScore = 0;
+let computerScore = 0;
 
-/* 
+function playGame(humanChoice) {
+    let computerChoice = getComputerChoice();
 
-1 - function for computer (actvation auto)
-2 - function for human (actvation by User Input)
-3 - funcation for PlayGame (win 5 and than restart) (this func beasd on our inputs)
+    // console.log(`Humane  : ${humanChoice}`);
+    // console.log(`Computr : ${computerChoice}`)
 
-*/
+    if (humanChoice === computerChoice)
+        alert(`You : ${humanChoice} - Tie|Tie - ${computerChoice} : Computer`);
+    else if (
+        humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "paper" ||
+        humanChoice === "paper" && computerChoice === "rock") {
 
-function getComputerChoice(number) {
+        humanScore++;
+        alert(`You : ${humanChoice} - Win | Score: ${humanScore} - ${computerScore} : Computer`);
 
-    if (number <= 0.3) {
-        computerChoice = "paper";
-    }
-    else if (number >= 0.7) {
-        computerChoice = "rock";
+        if (humanScore >= 5) {
+            alert(`You won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
+            humanScore = 0;
+            computerScore = 0;
+        }
+
     }
     else {
-        computerChoice = "scissore";
-    }
+        computerScore++;
+        alert(`You : ${humanChoice} - Lose | Score: ${humanScore} - ${computerScore} : Computer`);
 
-    return set(0, computerChoice);
-}
-
-
-function HumanChoice(HumanChoice) {
-
-    if (HumanChoice == 1) {
-        HumanChoice = "rock";
-    }
-    else if (HumanChoice == 2) {
-        HumanChoice = "paper";
-    }
-    else if (HumanChoice == 3) {
-        HumanChoice = "scissore";
-    }
-
-    return set(HumanChoice, 0);
-}
-
-
-function set(humanChoice, computerChoice) {
-
-    if (humanChoice == 0)
-        humanChoice = " ";
-    if (computerChoice == 0)
-        computerChoice = " ";
-
-    return playGame(humanChoice, computerChoice);
-}
-
-
-function playGame(HumanChoice, ComputerChoice) {
-
-    if (HumanChoice == "rock" && ComputerChoice == "paper") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Lose`);
-    }
-    else if (HumanChoice == "rock" && ComputerChoice == "scissore") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-    }
-    else if (HumanChoice == "paper" && ComputerChoice == "rock") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-    }
-    else if (HumanChoice == "paper" && ComputerChoice == "scissore") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : lose`);
-    }
-    else if (HumanChoice == "scissore" && ComputerChoice == "paper") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-    }
-    else if (HumanChoice == "scissore" && ComputerChoice == "rock") {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-    }
-    else if (HumanChoice == ComputerChoice) {
-        console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | Tie`);
+        if (computerScore >= 5) {
+            alert(`Computer won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
+            humanScore = 0;
+            computerScore = 0;
+        }
     }
 
 
@@ -105,6 +53,33 @@ function playGame(HumanChoice, ComputerChoice) {
 
 
 
+
+
+
+
+// function playRound(HumanChoice, ComputerChoice) {
+
+//     if (HumanChoice == "rock" && ComputerChoice == "paper") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Lose`);
+//     }
+//     else if (HumanChoice == "rock" && ComputerChoice == "scissore") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
+//     }
+//     else if (HumanChoice == "paper" && ComputerChoice == "rock") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
+//     }
+//     else if (HumanChoice == "paper" && ComputerChoice == "scissore") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : lose`);
+//     }
+//     else if (HumanChoice == "scissore" && ComputerChoice == "paper") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
+//     }
+//     else if (HumanChoice == "scissore" && ComputerChoice == "rock") {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : lose`);
+//     }
+//     else if (HumanChoice == ComputerChoice) {
+//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | Tie`);
+//     }
 
 
 /* 

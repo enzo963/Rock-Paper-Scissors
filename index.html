@@ -29,35 +29,22 @@
                 <div class="fight-arena">
                     <div class="buttons-class">
                         <button onclick="
-
-                         let number1 = Math.random()
-                         getComputerChoice(number1);
-
-                         let human1 = 1;
-                         HumanChoice(human1);
-
+                        playGame('rock');
+                        
                          " class="choice you-choice">
                             <img src="images/rock.png">
                         </button>
 
                         <button onclick="
-                         let number2 = Math.random()
-                         getComputerChoice(number2);
+                        playGame('paper');
 
-                         let human2 = 2;
-                         HumanChoice(human2);
-                        
                         " class="choice you-choice">
                             <img src="images/paper.png">
                         </button>
 
                         <button onclick="
-                        let number3 = Math.random()
-                         getComputerChoice(number3);
+                        playGame('scissors');
 
-                         let human3 = 3;
-                         HumanChoice(human3);
-                        
                         " class="choice you-choice">
                             <img src="images/Sciss.png">
                         </button>
@@ -66,9 +53,9 @@
                     <div class="container-score">
                         <div class="score-info">
 
-                            <p class="score .you-score">0</p>
-                            <p class="score .point">:</p>
-                            <p class="score .computer-score">0</p>
+                            <p class="score you-score">0</p>
+                            <p class="score point">:</p>
+                            <p class="score computer-score">0</p>
 
                         </div>
                     </div>
@@ -88,8 +75,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <script src="script.js"></script>
