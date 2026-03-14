@@ -16,30 +16,32 @@ let computerScore = 0;
 
 function playGame(humanChoice) {
     let computerChoice = getComputerChoice();
-
+    let result;
     // console.log(`Humane  : ${humanChoice}`);
     // console.log(`Computr : ${computerChoice}`)
 
-    if (humanChoice === computerChoice)
-        alert(`You : ${humanChoice} - Tie|Tie - ${computerChoice} : Computer`);
+    if (humanChoice === computerChoice) {
+        result = "Tie";
+        alert(`You : ${humanChoice} - ${result} | ${result} - ${computerChoice} : Computer`);
+    }
     else if (
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "paper" ||
         humanChoice === "paper" && computerChoice === "rock") {
 
+        result = "Win";
         humanScore++;
-        alert(`You : ${humanChoice} - Win | Score: ${humanScore} - ${computerScore} : Computer`);
+        alert(`You: ${humanChoice} | Computer: ${computerChoice} | ${result} | Score: ${humanScore}-${computerScore}`);
 
         if (humanScore >= 5) {
             alert(`You won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
             humanScore = 0;
             computerScore = 0;
         }
-
     }
     else {
         computerScore++;
-        alert(`You : ${humanChoice} - Lose | Score: ${humanScore} - ${computerScore} : Computer`);
+        alert(`You won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
 
         if (computerScore >= 5) {
             alert(`Computer won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
@@ -47,13 +49,7 @@ function playGame(humanChoice) {
             computerScore = 0;
         }
     }
-
-
-
-
-
-
-
+}
 
 
 
@@ -90,4 +86,3 @@ maybe we can represent 1, 2, 3 but it is not beatifull in git hub
 
 
 */
-
