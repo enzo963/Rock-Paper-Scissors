@@ -115,9 +115,9 @@ body {
     transform: scale(0.8);
 }
 
-/*=============*/
-/* Score      =*/
-/*=============*/
+/*===================*/
+/* Score            =*/
+/*===================*/
 
 .container-score {
     display: flex;
@@ -128,7 +128,9 @@ body {
 .score-info {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 10px;
+
 }
 
 
@@ -137,4 +139,12 @@ body {
     color: rgb(255, 255, 255);
     font-weight: 100;
     font-family: fantasy;
+}
+
+.container-score .text-score {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    font-family: fantasy;
+    text-align: center;
 }

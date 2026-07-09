@@ -10,79 +10,86 @@ function getComputerChoice() {
     return "scissors";
 }
 
-
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame(humanChoice) {
-    let computerChoice = getComputerChoice();
-    let result;
-    // console.log(`Humane  : ${humanChoice}`);
-    // console.log(`Computr : ${computerChoice}`)
+const humanScoreElement = document.querySelector(".you-score");
+const computerScoreElement = document.querySelector(".computer-score");
+const resultElement = document.querySelector(".text-score");
 
+
+function playRound(humanChoice) {
+    const computerChoice = getComputerChoice();
+    const result = determineWinner(humanChoice, computerChoice);
+
+    updateScore(result);
+    updateUI(result);
+    checkWinner();
+}
+
+
+function determineWinner(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        result = "Tie";
-        alert(`You : ${humanChoice} - ${result} | ${result} - ${computerChoice} : Computer`);
+        return "Tie";
     }
-    else if (
-        humanChoice === "rock" && computerChoice === "scissors" ||
+
+    if (humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "paper" ||
         humanChoice === "paper" && computerChoice === "rock") {
+        return "Win";
+    }
 
-        result = "Win";
+    return "Lose";
+}
+
+function updateScore(result) {
+    if (result === "Win") {
         humanScore++;
-        alert(`You: ${humanChoice} | Computer: ${computerChoice} | ${result} | Score: ${humanScore}-${computerScore}`);
-
-        if (humanScore >= 5) {
-            alert(`You won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
-            humanScore = 0;
-            computerScore = 0;
-        }
-    }
-    else {
+    } else if (result === "Lose") {
         computerScore++;
-        alert(`You won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
-
-        if (computerScore >= 5) {
-            alert(`Computer won the game! Final Score: You ${humanScore} - Computer ${computerScore}`);
-            humanScore = 0;
-            computerScore = 0;
-        }
     }
+}
+
+function updateUI(result) {
+    if (result === "Win") {
+        humanScoreElement.textContent = humanScore;
+        resultElement.textContent = "You Win!";
+    } else if (result === "Lose") {
+        computerScoreElement.textContent = computerScore;
+        resultElement.textContent = "You Lose!";
+    } else {
+        resultElement.textContent = "It's a Tie!";
+    }
+}
+
+function checkWinner() {
+    if (humanScore >= 5) {
+        resultElement.textContent = "You won the game!";
+        resetGame();
+    } else if (computerScore >= 5) {
+        resultElement.textContent = "Computer won the game!";
+        resetGame();
+    }
+
+}
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreElement.textContent = humanScore;
+    computerScoreElement.textContent = computerScore;
 }
 
 
 
-// function playRound(HumanChoice, ComputerChoice) {
-
-//     if (HumanChoice == "rock" && ComputerChoice == "paper") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Lose`);
-//     }
-//     else if (HumanChoice == "rock" && ComputerChoice == "scissore") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-//     }
-//     else if (HumanChoice == "paper" && ComputerChoice == "rock") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-//     }
-//     else if (HumanChoice == "paper" && ComputerChoice == "scissore") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : lose`);
-//     }
-//     else if (HumanChoice == "scissore" && ComputerChoice == "paper") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : Win`);
-//     }
-//     else if (HumanChoice == "scissore" && ComputerChoice == "rock") {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | You : lose`);
-//     }
-//     else if (HumanChoice == ComputerChoice) {
-//         console.log(`You :${HumanChoice} Conputer : ${ComputerChoice} | Tie`);
-//     }
 
 
-/* 
-
-after the user peck one of these Rosk, Paper, Ssissore
-
-maybe we can represent 1, 2, 3 but it is not beatifull in git hub 
 
 
-*/
+
+
+
+
+
+
+
